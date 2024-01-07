@@ -12,17 +12,19 @@
 
  impl Polynomial{
     pub fn new(expression:String) -> Polynomial {
+        
         Polynomial {
             expression: expression,
             terms:vec![],
             nov: 0,
+    
       
         }
     }
 
-    fn count(&mut self){
-        // let mut c:u8=0;
-        let mut start=false;        
+    pub fn count_variables(&mut self){
+        let mut start=false;       
+
     
         for ch in self.expression.chars(){
             if ch=='x'{
@@ -36,21 +38,25 @@
                 start=false;
             }
         }
-        
+        // self.prim
+    }
+    pub fn generate_prime(&self)->i32{
+                // (2^self.nov as i32)-1 as i32
+        // i32::pow(2,self.nov as u32)-1
+        191
     }
     
     pub fn evaluate_term(&self,term:String,_x:Vec<i32>)->i32{
-
+        // println!("\t evauating {} at {:?} ... ", term, _x);
         let mut result : i32= 1;
         let mut cond=false;
         let mut counter=0;
         for ch in term.chars(){
         counter+=1;
-
-            if cond{   cond=false;        
-                
+            if cond{   
+                cond=false;                        
                 result=result*_x[(ch as i32-48) as usize-1 ] as i32;
-                            continue;
+                continue;
             }
     
             
@@ -74,8 +80,9 @@
     }
 
 
-    fn find_terms(&mut self){
+    pub fn find_terms(&mut self){
         // let mut terms:Vec<String>= vec![];
+        println!("Finding terms ... ");
         let mut index:usize=0;
         let mut f_index:usize=0;
         for ch in self.expression.chars(){
@@ -90,14 +97,14 @@
             
         }
         self.terms.push(self.expression[f_index..].to_string());
-        // self.terms
-        
+                
     }
 
-pub    fn evaluate_polynomial(&self,_x:Vec<i32>)->i32{
+    pub    fn evaluate_polynomial(&self,_x:Vec<i32>)->i32{
+        println!("\t evauating {} at {:?} ... ", self.expression, _x);
         let mut result:i32=0;
         let mut sub= false;
-        for term in self.terms{
+        for term in self.terms.iter(){
             if term == "-"{ sub=true;continue;}
             if term == "+"{continue;}
             if sub{ result-=self.evaluate_term(term.clone(),_x.clone());  sub=false;
