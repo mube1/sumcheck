@@ -69,7 +69,10 @@ impl Verfication for Verifier{
             result  = value== _prev_value;
          
         }
-        let r :i32 = [2,3,6].to_vec()[round];
+
+     // Generate radom values to be tested
+        let mut rng = rand::thread_rng();
+        let r:i32 = rng.gen_range(0..(self.prime));
         self.rv.push(r);
         result
         
