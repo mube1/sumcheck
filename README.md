@@ -6,7 +6,7 @@ features
 + Infers the number of variables inside a polynomial authomatically
 + Generates a prime that is larger than the number of variables
 
-To be added
+usage
 + It requires powers to be inserted in a specific format x^2 as x*x
 + It requires variables to be numbered x'es...such as x1, x2...
 
