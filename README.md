@@ -12,7 +12,9 @@ To be added
 
 
 To verify that it works for the given example in chapter 4.1 of the [book](https://people.cs.georgetown.edu/jthaler/ProofsArgsAndZK.pdf), run the binary with the 
-'''
+```
 ./path/to.binary x1*x1*x1*2+x1*x3+x2*x2 12
-'''
+```
+
+
 
