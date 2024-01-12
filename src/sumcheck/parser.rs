@@ -29,12 +29,12 @@
         for ch in self.expression.chars(){
             if ch=='x'{
                 start=true; 
-                self.nov=1;
+                
                 continue;
             }
             if (ch as i32 >=48 && ch as i32 <=58) && start{
-                if ch as u8 >= self.nov{self.nov=ch as u8-48;}
-                else {self.nov+=1;}
+                if ch as u8 -48 >= self.nov{self.nov=ch as u8-48;}
+                
                 start=false;
             }
         }
