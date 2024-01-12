@@ -2,8 +2,13 @@
 //  use std::env;
 
  pub struct Polynomial{
+  // List of terms in string form
     pub terms:Vec<String>,
+  
+  // Number of variables nov
     pub nov:u8,
+
+  // the polynomial expression
     pub expression:String
  }
 
@@ -12,7 +17,7 @@
 
  impl Polynomial{
     pub fn new(expression:String) -> Polynomial {
-        
+        // a constructor for a new polynomial
         Polynomial {
             expression: expression,
             terms:vec![],
@@ -23,6 +28,9 @@
     }
 
     pub fn count_variables(&mut self){
+     // count the number of variables in the polynomial experssion
+   // takes in itself, counts the variables which will be used in for the number of rounds of the protocol
+     
         let mut start=false;       
 
     
@@ -41,6 +49,7 @@
         // self.prim
     }
     pub fn generate_prime(&self)->i32{
+     // Generating a prime number as per the protocol
                 // (2^self.nov as i32)-1 as i32
         // i32::pow(2,self.nov as u32)-1
         191
@@ -101,14 +110,18 @@
     }
 
     pub    fn evaluate_polynomial(&self,_x:Vec<i32>)->i32{
+     // evaluate a polynomial at a vector _x
+     
         println!("\t evauating {} at {:?} ... ", self.expression, _x);
+     
         let mut result:i32=0;
         let mut sub= false;
+     // iterate through the terms, evaluate , and add them.
         for term in self.terms.iter(){
             if term == "-"{ sub=true;continue;}
             if term == "+"{continue;}
-            if sub{ result-=self.evaluate_term(term.clone(),_x.clone());  sub=false;
-            }
+            
+            if sub{ result-=self.evaluate_term(term.clone(),_x.clone());  sub=false;  }
             else{   result+=self.evaluate_term(term.clone(),_x.clone());}
     
     
