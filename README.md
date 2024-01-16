@@ -2,7 +2,7 @@
 implementation of sumcheck protocol
 
 
-![figure](https://github.com/mube1/sumcheck/draw%20here%20(8).png)
+![figure](https://github.com/mube1/sumcheck/blob/main/draw%20here%20(8).png)
 
 features 
 + implements polynomial evalutation from scratch
