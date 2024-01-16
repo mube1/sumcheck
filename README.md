@@ -1,6 +1,9 @@
 # sumcheck
 implementation of sumcheck protocol
 
+
+![figure]([http://url/to/img.png](https://github.com/mube1/sumcheck/blob/main/draw%20here%20(8).png))
+
 features 
 + implements polynomial evalutation from scratch
 + Infers the number of variables inside a polynomial authomatically
